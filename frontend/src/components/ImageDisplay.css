@@ -1,0 +1,134 @@
+.image-display {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    0 0 0 4px rgba(255, 255, 255, 0.3),
+    inset 0 0 60px rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #e0f7fa, #f3e5f5);
+  animation: imageFloat 6s ease-in-out infinite;
+}
+
+.jungle-scene {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Cloud animations */
+.cloud-1 {
+  animation: cloudDrift1 20s ease-in-out infinite;
+}
+
+.cloud-2 {
+  animation: cloudDrift2 25s ease-in-out infinite;
+}
+
+/* Monkey swinging */
+.monkey-swing {
+  transform-origin: 175px 300px;
+  animation: monkeySwing 3s ease-in-out infinite;
+}
+
+/* Parrot bobbing */
+.parrot-bob {
+  animation: parrotBob 2s ease-in-out infinite;
+}
+
+/* Elephant splash */
+.splash-drops circle {
+  animation: splashDrop 2s ease-in-out infinite;
+}
+
+.splash-drops circle:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.splash-drops circle:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.splash-drops circle:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+/* Butterfly animations */
+.butterfly-1 {
+  animation: butterflyFly1 8s ease-in-out infinite;
+}
+
+.butterfly-2 {
+  animation: butterflyFly2 10s ease-in-out infinite;
+}
+
+/* Flower sway */
+.flower-sway {
+  animation: flowerSway 4s ease-in-out infinite;
+}
+
+.flower-sway:nth-child(even) {
+  animation-delay: 1s;
+}
+
+@keyframes imageFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes cloudDrift1 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(30px); }
+}
+
+@keyframes cloudDrift2 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-25px); }
+}
+
+@keyframes monkeySwing {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(8deg); }
+  75% { transform: rotate(-8deg); }
+}
+
+@keyframes parrotBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes splashDrop {
+  0%, 100% { transform: translateY(0px); opacity: 0.8; }
+  50% { transform: translateY(-12px); opacity: 0.3; }
+}
+
+@keyframes butterflyFly1 {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(20px, -15px); }
+  50% { transform: translate(40px, 5px); }
+  75% { transform: translate(15px, -10px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes butterflyFly2 {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-15px, -20px); }
+  50% { transform: translate(-30px, 5px); }
+  75% { transform: translate(-10px, -15px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes flowerSway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(3deg); }
+}

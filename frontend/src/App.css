@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+
+:root {
+  --accent-color: #667eea;
+  --bg-primary: #0f0c29;
+  --bg-secondary: #302b63;
+  --bg-tertiary: #24243e;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: --accent-color 0.5s ease;
+}
+
+/* Animated gradient background */
+.app-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg,
+      #0f0c29 0%,
+      #302b63 40%,
+      #24243e 70%,
+      #0f0c29 100%);
+  overflow: hidden;
+}
+
+.app-background::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(102, 126, 234, 0.15) 0%,
+      transparent 70%);
+  top: -200px;
+  right: -200px;
+  animation: orbFloat1 15s ease-in-out infinite;
+}
+
+.app-background::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(118, 75, 162, 0.12) 0%,
+      transparent 70%);
+  bottom: -150px;
+  left: -150px;
+  animation: orbFloat2 20s ease-in-out infinite;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  padding: 24px 20px 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.app-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #f093fb, #f5576c, #fda085, #f5af19);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 8s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.title-emoji {
+  -webkit-text-fill-color: initial;
+  font-size: 1.8rem;
+  animation: titleSpin 4s ease-in-out infinite;
+}
+
+.app-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Main layout */
+.app-main {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px 32px 32px;
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Error banner */
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 8px 32px;
+  padding: 12px 20px;
+  background: rgba(244, 67, 54, 0.2);
+  border: 1px solid rgba(244, 67, 54, 0.4);
+  border-radius: 12px;
+  color: #ff8a80;
+  font-size: 0.85rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.error-close {
+  background: none;
+  border: none;
+  color: #ff8a80;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+/* Animations */
+@keyframes orbFloat1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-80px, 80px) scale(1.1);
+  }
+}
+
+@keyframes orbFloat2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(60px, -60px) scale(1.15);
+  }
+}
+
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes titleSpin {
+
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: rotate(10deg) scale(1.1);
+  }
+
+  75% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .app-main {
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .right-panel {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .app-title {
+    font-size: 1.6rem;
+  }
+}
